@@ -1,18 +1,79 @@
-# 💫 About Me:
-I'm a B.tech student at Anurag University specialising in AI, and I'm looking for new project ideas and learning Python,Machine learning ,nlp,html,java
-
-
-## 🌐 Socials:
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/Tehnaazfathima) 
-
-# 💻 Tech Stack:
-![C](https://img.shields.io/badge/c-%2300599C.svg?style=flat-square&logo=c&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=flat-square&logo=python&logoColor=ffdd54) ![C](https://img.shields.io/badge/c-%2300599C.svg?style=flat-square&logo=c&logoColor=white) ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=flat-square&logo=openjdk&logoColor=white) ![Adobe](https://img.shields.io/badge/adobe-%23FF0000.svg?style=flat-square&logo=adobe&logoColor=white) ![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=flat-square&logo=Matplotlib&logoColor=black) ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=flat-square&logo=pandas&logoColor=white) ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=flat-square&logo=scikit-learn&logoColor=white)
-# 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=Tehnaaz-AI&theme=radical&hide_border=false&include_all_commits=false&count_private=false)<br/>
-![](https://nirzak-streak-stats.vercel.app/?user=Tehnaaz-AI&theme=radical&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=Tehnaaz-AI&theme=radical&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
+# 👩‍💻 Tehnaaz Fathima  
+### 🚀 AI Enthusiast | B.Tech Student @ Anurag University | Future ML Innovator  
 
 ---
-[![](https://visitcount.itsvg.in/api?id=Tehnaaz-AI&icon=0&color=0)](https://visitcount.itsvg.in)
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+## 🌟 About Me  
+💡 Passionate about building intelligent systems that solve real-world problems  
+🎓 B.Tech student specializing in **Artificial Intelligence**  
+🧠 Currently exploring **Machine Learning, NLP, and Full-Stack Development**  
+🔬 Interested in AI applications in productivity, automation, and social impact  
+📚 Constant learner who enjoys experimenting with new technologies  
+
+---
+
+## 🧭 Current Focus
+- 🤖 Building AI & ML-based projects  
+- 🐍 Strengthening Python & Data Science skills  
+- 🌐 Learning Web Development for AI deployment  
+- 📊 Exploring Data Visualization & Model Explainability  
+- 🧩 Practicing problem-solving and algorithm design  
+
+---
+
+## 🛠️ Tech Arsenal  
+
+### 👨‍💻 Programming Languages  
+![Python](https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
+
+---
+
+### 🤖 AI / Data Science  
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-white?style=for-the-badge&logo=matplotlib&logoColor=black)
+![Scikit-Learn](https://img.shields.io/badge/ScikitLearn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+
+---
+
+### 🌐 Other Tools & Skills  
+![Adobe](https://img.shields.io/badge/Adobe-FF0000?style=for-the-badge&logo=adobe&logoColor=white)
+
+---
+
+## 📊 GitHub Analytics  
+
+<p align="center">
+<img src="https://github-readme-stats.vercel.app/api?username=Tehnaaz-AI&theme=radical&show_icons=true" height="165">
+<img src="https://nirzak-streak-stats.vercel.app/?user=Tehnaaz-AI&theme=radical" height="165">
+</p>
+
+<p align="center">
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Tehnaaz-AI&theme=radical&layout=compact">
+</p>
+
+---
+
+## 🚀 Featured Interests & Project Areas  
+✨ Smart AI Assistants  
+✨ NLP-Based Applications  
+✨ Data Visualization Dashboards  
+✨ Automation Tools  
+✨ Brain Puzzle & Game Development  
+✨ AI for Sustainability  
+
+---
+
+## 🌍 Let's Connect  
+💼 LinkedIn:  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-TehnaazFathima-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/Tehnaazfathima)
+
+---
+
+## ⚡ Fun Fact  
+I enjoy turning complex problems into elegant AI solutions and believe technology should always make life simpler and smarter.
+
+---
+
+⭐ *"Code, Learn, Build, Repeat."*
