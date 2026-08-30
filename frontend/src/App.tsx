@@ -12,6 +12,7 @@ import { Preloader } from './components/ui/Preloader';
 import { Skills } from './pages/Skills';
 import { Projects } from './pages/Projects';
 import { Journey } from './pages/Journey';
+import { Connect } from './pages/Connect';
 
 function AnimatedRoutes() {
   return (
@@ -21,6 +22,7 @@ function AnimatedRoutes() {
         <Route path="skills" element={<Skills />} />
         <Route path="projects" element={<Projects />} />
         <Route path="journey" element={<Journey />} />
+        <Route path="contact" element={<Connect />} />
       </Route>
     </Routes>
   );

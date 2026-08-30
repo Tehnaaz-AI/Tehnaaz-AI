@@ -2,8 +2,15 @@
 <html lang="en">
 
 <head>
+  <script type="module">import { injectIntoGlobalHook } from "/@react-refresh";
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+  <script type="module" src="/@vite/client"></script>
+
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="/favicon-circle.png?v=6" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=4" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfolio of Tehnaaz Fathima - Exploring AI and building software." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />

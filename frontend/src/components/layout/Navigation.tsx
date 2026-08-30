@@ -6,7 +6,7 @@ export function Navigation() {
   const location = useLocation();
 
   const links = [
-    { href: '/', label: 'Home' },
+    { href: '/', label: 'Core' },
     { href: '/projects', label: 'Projects' },
     { href: '/skills', label: 'Skills' },
     { href: '/journey', label: 'Journey' },

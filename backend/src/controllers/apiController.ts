@@ -3,6 +3,9 @@ import Project from '../models/Project';
 import Skill from '../models/Skill';
 import Journey from '../models/Journey';
 
+import Message from '../models/Message';
+import nodemailer from 'nodemailer';
+
 export const getHealthStatus = (req: Request, res: Response) => {
   res.json({ status: 'ok', message: 'Neural API online, Systems nominal.' });
 };
@@ -38,7 +41,49 @@ export const getExperiments = (req: Request, res: Response) => {
   res.json({ message: 'Experiments endpoint', data: [] });
 };
 
-export const handleContact = (req: Request, res: Response) => {
-  console.log('Contact form received:', req.body);
-  res.status(200).json({ success: true, message: 'Message received successfully!' });
+export const handleContact = async (req: Request, res: Response) => {
+  try {
+    const { name, email, message } = req.body;
+    
+    if (!name || !email || !message) {
+      return res.status(400).json({ success: false, error: 'All fields are required' });
+    }
+
+    // 1. Save to Database
+    const newMessage = new Message({ name, email, message });
+    await newMessage.save();
+    console.log('New message saved:', newMessage._id);
+
+    // 2. Send Email Notification
+    if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
+        tls: {
+          rejectUnauthorized: false
+        }
+      });
+
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: '24eg106c63@anurag.edu.in', // User's email
+        subject: `New Portfolio Message from ${name}`,
+        text: `You have received a new message from your portfolio website!\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+        replyTo: email,
+      };
+
+      await transporter.sendMail(mailOptions);
+      console.log('Email notification sent successfully!');
+    } else {
+      console.log('Email notification skipped: EMAIL_USER or EMAIL_PASS not configured in .env');
+    }
+
+    res.status(200).json({ success: true, message: 'Message sent successfully!' });
+  } catch (err: any) {
+    console.error('Error handling message:', err);
+    res.status(500).json({ success: false, error: 'Failed to send message' });
+  }
 };
