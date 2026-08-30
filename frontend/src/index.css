@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --color-charcoal-900: #FFFFFF;
+  --color-charcoal-800: #FFFFFF;
+  --color-charcoal-700: #000000;
+  --color-accent-cyan: #000000;
+  --color-accent-indigo: #000000;
+  --color-accent-violet: #000000;
+  --color-accent-warm: #000000;
+  --color-off-white: #000000;
+  
+  --font-sans: 'Syncopate', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Organic Theme (Phase 3) */
+  --color-organic-bg: #FFFFFF;
+  --color-organic-text: #000000;
+  --color-organic-accent: #000000;
+  --color-organic-dark: #000000;
+  --color-organic-muted: #666666;
+  
+  --font-organic-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-organic-mono: 'IBM Plex Mono', monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-charcoal-900 text-off-white font-body antialiased;
+    background-color: var(--color-charcoal-900);
+    color: var(--color-off-white);
+  }
+
+  ::selection {
+    @apply bg-accent-cyan/30 text-white;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+
+
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body.custom-cursor-active * {
+    cursor: none !important;
+  }
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s ease;
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2);
+}
