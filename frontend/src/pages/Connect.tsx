@@ -3,7 +3,6 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaRegCopy, FaCheck } from 'react-icon
 import { useState } from 'react';
 import { PageTransition } from '../components/layout/PageTransition';
 import { Magnetic } from '../components/ui/Magnetic';
-
 import { ENV } from '../config/env';
 
 export function Connect() {
@@ -52,137 +51,169 @@ export function Connect() {
 
   return (
     <PageTransition>
-      <div className="flex flex-col items-center justify-center min-h-screen py-32 gap-12 text-center max-w-2xl mx-auto">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl font-sans font-bold"
-        >
-          LET'S BUILD SOMETHING INTERESTING.
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="text-off-white/70 font-mono"
-        >
-          Open for collaborations, interesting conversations, and opportunities to build intelligent software.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3 }}
-          className="flex flex-col w-full gap-4 mt-8"
-        >
-          <div className="flex items-center justify-between border border-charcoal-700 bg-charcoal-800/50 p-4 rounded-lg">
-            <div className="flex items-center gap-4">
-              <FaEnvelope className="text-accent-cyan" />
-              <span className="font-mono">{email}</span>
+      <div className="w-full min-h-screen bg-white text-black selection:bg-black selection:text-white px-4 sm:px-6 pt-24 sm:pt-28 pb-32">
+        <div className="flex flex-col items-center justify-center max-w-2xl mx-auto gap-8 sm:gap-10 text-center">
+          
+          <div>
+            <div className="mb-4 text-black font-black bg-black/5 px-4 py-1.5 rounded-full border border-black/10 shadow-sm text-xs sm:text-sm uppercase tracking-widest inline-block">
+              Get in Touch
             </div>
-            <button
-              onClick={handleCopyEmail}
-              className="p-2 text-off-white hover:text-accent-cyan transition-colors"
-              title="Copy Email"
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-black leading-tight"
             >
-              {copied ? <FaCheck size={18} className="text-accent-cyan" /> : <FaRegCopy size={18} />}
-            </button>
+              Let's Build Something Great.
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.15 }}
+              className="text-black/70 font-organic-mono text-xs sm:text-sm md:text-base mt-4 max-w-lg mx-auto leading-relaxed"
+            >
+              Open for collaborations, interesting conversations, internships, and building intelligent software.
+            </motion.p>
           </div>
 
-          <Magnetic intensity={0.1}>
-            <a
-              href="https://github.com/Tehnaaz-AI"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex w-full items-center gap-4 border border-black/20 hover:border-black bg-transparent hover:bg-black p-4 rounded-lg transition-colors group"
-            >
-              <FaGithub className="text-black group-hover:text-white transition-colors" />
-              <span className="font-mono text-black group-hover:text-white transition-colors">GitHub</span>
-              <span className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity font-mono text-sm text-white">↗</span>
-            </a>
-          </Magnetic>
-
-          <Magnetic intensity={0.1}>
-            <a
-              href="https://www.linkedin.com/in/tehnaazfathima/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex w-full items-center gap-4 border border-black/20 hover:border-black bg-transparent hover:bg-black p-4 rounded-lg transition-colors group"
-            >
-              <FaLinkedin className="text-black group-hover:text-white transition-colors" />
-              <span className="font-mono text-black group-hover:text-white transition-colors">LinkedIn</span>
-              <span className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity font-mono text-sm text-white">↗</span>
-            </a>
-          </Magnetic>
-        </motion.div>
-
-        {/* Contact Form Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="w-full mt-12 border-t border-charcoal-700 pt-12"
-        >
-          <h2 className="text-2xl font-bold mb-6 font-sans">Send a Message or Doubt</h2>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">
-            <div className="flex flex-col gap-1">
-              <label htmlFor="name" className="text-sm font-mono text-off-white/70">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="bg-charcoal-800/50 border border-charcoal-700 rounded p-3 text-off-white focus:outline-none focus:border-accent-cyan transition-colors"
-                placeholder="Your Name"
-              />
+          {/* Contact Direct Links */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.25 }}
+            className="flex flex-col w-full gap-3 sm:gap-4"
+          >
+            {/* Copy Email Box */}
+            <div className="flex items-center justify-between border-2 border-black bg-white p-3 sm:p-4 rounded-xl shadow-[4px_4px_0_0_#000]">
+              <div className="flex items-center gap-3 truncate pr-2">
+                <FaEnvelope className="text-black shrink-0" size={18} />
+                <span className="font-organic-mono text-xs sm:text-sm font-bold text-black truncate">{email}</span>
+              </div>
+              <button
+                onClick={handleCopyEmail}
+                className="p-2 text-black hover:bg-black/5 rounded-lg transition-colors shrink-0"
+                title="Copy Email"
+                aria-label="Copy Email"
+              >
+                {copied ? <FaCheck size={16} className="text-green-600" /> : <FaRegCopy size={16} />}
+              </button>
             </div>
 
-            <div className="flex flex-col gap-1">
-              <label htmlFor="email" className="text-sm font-mono text-off-white/70">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="bg-charcoal-800/50 border border-charcoal-700 rounded p-3 text-off-white focus:outline-none focus:border-accent-cyan transition-colors"
-                placeholder="your@email.com"
-              />
-            </div>
+            {/* Social Links */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <Magnetic intensity={0.1}>
+                <a
+                  href={ENV.GITHUB_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex w-full items-center justify-between gap-3 border-2 border-black bg-white hover:bg-black text-black hover:text-white p-3.5 sm:p-4 rounded-xl shadow-[4px_4px_0_0_#000] hover:shadow-[6px_6px_0_0_#000] hover:-translate-y-0.5 transition-all duration-300 group"
+                >
+                  <div className="flex items-center gap-3">
+                    <FaGithub size={18} />
+                    <span className="font-organic-mono text-xs sm:text-sm font-bold uppercase tracking-wider">GitHub</span>
+                  </div>
+                  <span className="font-mono text-sm">↗</span>
+                </a>
+              </Magnetic>
 
-            <div className="flex flex-col gap-1">
-              <label htmlFor="message" className="text-sm font-mono text-off-white/70">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={4}
-                className="bg-charcoal-800/50 border border-charcoal-700 rounded p-3 text-off-white focus:outline-none focus:border-accent-cyan transition-colors resize-y"
-                placeholder="Post a doubt, say hi, or share an idea..."
-              />
+              <Magnetic intensity={0.1}>
+                <a
+                  href={ENV.LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex w-full items-center justify-between gap-3 border-2 border-black bg-white hover:bg-black text-black hover:text-white p-3.5 sm:p-4 rounded-xl shadow-[4px_4px_0_0_#000] hover:shadow-[6px_6px_0_0_#000] hover:-translate-y-0.5 transition-all duration-300 group"
+                >
+                  <div className="flex items-center gap-3">
+                    <FaLinkedin size={18} />
+                    <span className="font-organic-mono text-xs sm:text-sm font-bold uppercase tracking-wider">LinkedIn</span>
+                  </div>
+                  <span className="font-mono text-sm">↗</span>
+                </a>
+              </Magnetic>
             </div>
+          </motion.div>
 
-            <button
-              type="submit"
-              disabled={status === 'loading'}
-              className={`mt-4 p-3 rounded font-mono font-bold transition-all ${status === 'success' ? 'bg-green-50 text-green-700 border border-green-500' :
-                  status === 'error' ? 'bg-red-50 text-red-700 border border-red-500' :
-                    'bg-black text-white hover:bg-black/80'
+          {/* Contact Form Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
+            className="w-full border-t-2 border-black pt-8 sm:pt-10 text-left"
+          >
+            <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-black mb-6 text-center sm:text-left">
+              Send a Direct Message
+            </h2>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="name" className="text-xs sm:text-sm font-organic-mono font-bold uppercase tracking-wider text-black">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="bg-white border-2 border-black rounded-lg p-3 text-xs sm:text-sm font-organic-mono text-black placeholder:text-black/40 focus:outline-none focus:shadow-[4px_4px_0_0_#000] transition-all"
+                  placeholder="e.g. Alex Smith"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="email" className="text-xs sm:text-sm font-organic-mono font-bold uppercase tracking-wider text-black">
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="bg-white border-2 border-black rounded-lg p-3 text-xs sm:text-sm font-organic-mono text-black placeholder:text-black/40 focus:outline-none focus:shadow-[4px_4px_0_0_#000] transition-all"
+                  placeholder="alex@company.com"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="message" className="text-xs sm:text-sm font-organic-mono font-bold uppercase tracking-wider text-black">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={4}
+                  className="bg-white border-2 border-black rounded-lg p-3 text-xs sm:text-sm font-organic-mono text-black placeholder:text-black/40 focus:outline-none focus:shadow-[4px_4px_0_0_#000] transition-all resize-y"
+                  placeholder="Say hi, ask a doubt, or share an exciting opportunity..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={status === 'loading'}
+                className={`mt-2 py-3.5 px-6 rounded-lg font-mono font-bold text-xs sm:text-sm uppercase tracking-widest border-2 md:border-4 border-black transition-all duration-300 shadow-[4px_4px_0_0_#000] hover:shadow-[6px_6px_0_0_#000] ${
+                  status === 'success'
+                    ? 'bg-green-500 text-white'
+                    : status === 'error'
+                    ? 'bg-red-500 text-white'
+                    : 'bg-black text-white hover:bg-white hover:text-black hover:-translate-y-0.5'
                 }`}
-            >
-              {status === 'loading' ? 'Sending...' :
-                status === 'success' ? 'Message Sent!' :
-                  status === 'error' ? 'Error sending message' :
-                    'Send Message'}
-            </button>
-          </form>
-        </motion.div>
+              >
+                {status === 'loading'
+                  ? 'Sending...'
+                  : status === 'success'
+                  ? '✓ Message Sent Successfully!'
+                  : status === 'error'
+                  ? 'Error Sending Message - Try Again'
+                  : 'Send Message ➔'}
+              </button>
+            </form>
+          </motion.div>
+
+        </div>
       </div>
     </PageTransition>
   );
