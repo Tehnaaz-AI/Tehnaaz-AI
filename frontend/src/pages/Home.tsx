@@ -21,10 +21,10 @@ export function Home() {
 
           {/* Top Section: Watermark Name (Sticky) */}
           <div className="absolute top-0 left-0 w-full z-10 pointer-events-none h-[180vh] md:h-[250vh]">
-            <div className="sticky top-0 h-screen w-full flex items-center justify-start overflow-hidden px-6 sm:px-12 md:px-24">
+            <div className="sticky top-0 h-screen w-full flex items-start md:items-center justify-start overflow-hidden px-6 sm:px-12 md:px-24 pt-24 sm:pt-32 md:pt-0">
               <motion.div
-                style={{ opacity: nameOpacity, scale: nameScale, transformOrigin: 'left center' }}
-                className="flex flex-col text-left max-w-[85vw] md:max-w-[50vw]"
+                style={{ opacity: nameOpacity, scale: nameScale, transformOrigin: 'left top' }}
+                className="flex flex-col text-left max-w-[90vw] md:max-w-[50vw]"
               >
                 <h1 className="text-4xl sm:text-6xl md:text-[8vw] leading-[0.95] font-sans font-black tracking-tight text-black uppercase">
                   Tehnaaz <br /> Fathima

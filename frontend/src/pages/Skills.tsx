@@ -88,9 +88,9 @@ function SkillItem({
 
   return (
     <>
-      {/* 3D Skill Text */}
+      {/* 3D Skill Text - Appears below image on mobile (top-[68%]), centered on desktop (top-1/2) */}
       <motion.div
-        className="absolute w-full flex justify-center items-center pointer-events-none z-30"
+        className="absolute top-[68%] md:top-1/2 -translate-y-1/2 w-full flex justify-center items-center pointer-events-none z-30"
         style={{
           y,
           rotateX,
@@ -99,14 +99,14 @@ function SkillItem({
           z,
         }}
       >
-        <div className="font-organic-mono font-bold uppercase tracking-widest text-xs sm:text-base md:text-xl text-black bg-white px-5 py-2.5 sm:px-8 sm:py-4 border border-black/20 rounded-full shadow-xl whitespace-nowrap text-center pointer-events-auto hover:bg-black hover:text-white transition-colors duration-300">
+        <div className="font-organic-mono font-bold uppercase tracking-widest text-xs sm:text-base md:text-xl text-black bg-white px-5 py-2.5 sm:px-8 sm:py-4 border-2 border-black/30 rounded-full shadow-2xl whitespace-nowrap text-center pointer-events-auto hover:bg-black hover:text-white transition-colors duration-300">
           {interest.name}
         </div>
       </motion.div>
 
-      {/* Independent Certificate Image (Vertical scroll only, no fading) */}
+      {/* Independent Certificate Image - Centered above skill name on mobile (top-[42%]), on left/right on desktop */}
       <motion.div
-        className={`absolute top-[58%] md:top-1/2 -translate-y-1/2 w-52 sm:w-64 md:w-80 rounded-md shadow-2xl overflow-hidden border-2 sm:border-4 border-white backdrop-blur-sm z-20 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 ${
+        className={`absolute top-[42%] md:top-1/2 -translate-y-1/2 w-52 sm:w-64 md:w-80 rounded-md shadow-2xl overflow-hidden border-2 sm:border-4 border-white backdrop-blur-sm z-20 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 ${
           interest.side === 'left' 
             ? 'md:right-[62%] lg:right-[65%]' 
             : 'md:left-[62%] lg:left-[65%]'

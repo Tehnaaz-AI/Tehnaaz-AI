@@ -6,18 +6,19 @@ export function CurrentStatus() {
 
   return (
     <div 
-      className="flex items-center cursor-default h-14"
+      className="flex items-center cursor-pointer h-12 md:h-14"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={() => setIsHovered(!isHovered)}
     >
       <motion.div 
-        className="flex items-center bg-white/60 backdrop-blur-xl border border-black rounded-full shadow-lg overflow-hidden h-12"
+        className="flex items-center bg-white/80 backdrop-blur-xl border border-black rounded-full shadow-md overflow-hidden h-10 sm:h-12"
         initial={false}
-        animate={{ width: isHovered ? 'auto' : '48px' }}
+        animate={{ width: isHovered ? 'auto' : '44px' }}
         transition={{ type: "spring", stiffness: 400, damping: 30 }}
       >
-        <div className="w-12 h-12 flex items-center justify-center shrink-0">
-          <span className="font-organic-mono text-[10px] font-black uppercase tracking-widest text-black">
+        <div className="w-11 h-10 sm:w-12 sm:h-12 flex items-center justify-center shrink-0">
+          <span className="font-organic-mono text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-black">
             Now
           </span>
         </div>

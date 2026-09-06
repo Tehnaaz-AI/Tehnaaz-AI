@@ -9,11 +9,11 @@ export function Layout() {
     <div className="min-h-screen flex flex-col relative selection:bg-black selection:text-white">
       <DynamicBackground />
       
-      <div className="fixed top-3 sm:top-6 left-0 w-full flex justify-between sm:justify-center items-center gap-2 sm:gap-4 z-50 pointer-events-none px-3 sm:px-4 max-w-full">
-        <div className="pointer-events-auto hidden sm:block">
+      <div className="fixed top-3 sm:top-6 left-0 w-full flex justify-center items-center gap-2 sm:gap-4 z-50 pointer-events-none px-2 sm:px-4 max-w-full">
+        <div className="pointer-events-auto shrink-0">
           <CurrentStatus />
         </div>
-        <div className="pointer-events-auto mx-auto sm:mx-0">
+        <div className="pointer-events-auto shrink-0">
           <Navigation />
         </div>
       </div>

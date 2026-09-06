@@ -55,11 +55,15 @@ export function ScrollSequence({ isBackgroundMode = false }: { isBackgroundMode?
         : [0.65, 0.95, 0.8, 0.6, 0.45]
   );
 
-  // Translate animation: Moves it down into the center of the footer at the very end
+  // Translate animation: Moves it down cleanly on mobile so hero text sits above it
   const canvasY = useTransform(
     scrollYProgress,
-    [0.85, 1],
-    isBackgroundMode ? ["0vh", "0vh"] : isMobile ? ["0vh", "8vh"] : ["0vh", "15vh"]
+    [0, 0.4, 0.7, 0.85, 1],
+    isBackgroundMode 
+      ? ["0vh", "0vh", "0vh", "0vh", "0vh"] 
+      : isMobile 
+        ? ["16vh", "10vh", "0vh", "0vh", "8vh"] 
+        : ["0vh", "0vh", "0vh", "0vh", "15vh"]
   );
 
   // Translate X animation: Starts on the right on desktop, stays centered on mobile

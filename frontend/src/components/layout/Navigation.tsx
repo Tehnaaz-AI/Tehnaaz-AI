@@ -21,12 +21,12 @@ export function Navigation() {
 
   return (
     <>
-    <header className="z-50 w-max border border-black bg-white/60 backdrop-blur-xl rounded-full shadow-sm transition-all duration-300">
-      <div className="px-6 md:px-8 h-14 flex items-center justify-between gap-8 md:gap-16">
+    <header className="z-50 w-max border border-black bg-white/80 backdrop-blur-xl rounded-full shadow-sm transition-all duration-300">
+      <div className="px-4 sm:px-6 md:px-8 h-10 sm:h-12 md:h-14 flex items-center justify-between gap-3 sm:gap-8 md:gap-16">
         <Magnetic intensity={0.1}>
           <NavLink 
             to="/" 
-            className="text-black font-organic-sans font-black tracking-tighter text-lg flex items-center gap-2 group uppercase cursor-pointer"
+            className="text-black font-organic-sans font-black tracking-tighter text-sm sm:text-base md:text-lg flex items-center gap-2 group uppercase cursor-pointer"
           >
             <span className="w-2 h-2 rounded-full bg-black group-hover:scale-150 transition-transform duration-300 shrink-0"></span>
             <span className="whitespace-nowrap overflow-hidden">
