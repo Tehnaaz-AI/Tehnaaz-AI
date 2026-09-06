@@ -44,25 +44,25 @@ export function ScrollSequence({ isBackgroundMode = false }: { isBackgroundMode?
   // Yoyo effect: 0 -> 239 -> 0
   const frameIndex = useTransform(scrollYProgress, [0, 0.5, 1], [0, FRAME_COUNT - 1, 0]);
 
-  // Scale animation: Large on mobile hero, scales to land inside orbit at bottom
+  // Scale animation: Centered on mobile hero, scales to land inside orbit at bottom
   const canvasScale = useTransform(
     scrollYProgress,
     [0, 0.35, 0.65, 0.85, 1],
     isBackgroundMode 
       ? [0.5, 0.5, 0.5, 0.5, 0.5] 
       : isMobile 
-        ? [0.75, 0.85, 0.7, 0.52, 0.44] 
+        ? [0.72, 0.85, 0.7, 0.5, 0.42] 
         : [0.65, 0.95, 0.8, 0.6, 0.52]
   );
 
-  // Translate animation: Spaced below hero name on mobile (20vh), lands in exact center of bottom orbit (-20vh)
+  // Translate animation: Grouped below hero name in screen center (14vh), lands in exact center of bottom orbit (-17vh)
   const canvasY = useTransform(
     scrollYProgress,
     [0, 0.4, 0.7, 0.85, 1],
     isBackgroundMode 
       ? ["0vh", "0vh", "0vh", "0vh", "0vh"] 
       : isMobile 
-        ? ["20vh", "0vh", "0vh", "-8vh", "-20vh"] 
+        ? ["14vh", "0vh", "0vh", "-8vh", "-17vh"] 
         : ["0vh", "0vh", "0vh", "0vh", "0vh"]
   );
 
