@@ -11,6 +11,13 @@ export function ScrollSequence({ isBackgroundMode = false }: { isBackgroundMode?
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [loaded, setLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 768 : false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Preload images
   useEffect(() => {
@@ -41,21 +48,29 @@ export function ScrollSequence({ isBackgroundMode = false }: { isBackgroundMode?
   const canvasScale = useTransform(
     scrollYProgress,
     [0, 0.4, 0.7, 0.85, 1],
-    isBackgroundMode ? [0.5, 0.5, 0.5, 0.5, 0.5] : [0.65, 0.95, 0.8, 0.6, 0.45]
+    isBackgroundMode 
+      ? [0.5, 0.5, 0.5, 0.5, 0.5] 
+      : isMobile 
+        ? [0.55, 0.75, 0.65, 0.5, 0.35] 
+        : [0.65, 0.95, 0.8, 0.6, 0.45]
   );
 
   // Translate animation: Moves it down into the center of the footer at the very end
   const canvasY = useTransform(
     scrollYProgress,
     [0.85, 1],
-    isBackgroundMode ? ["0vh", "0vh"] : ["0vh", "15vh"]
+    isBackgroundMode ? ["0vh", "0vh"] : isMobile ? ["0vh", "8vh"] : ["0vh", "15vh"]
   );
 
-  // Translate X animation: Starts on the right, moves to center, ends slightly right
+  // Translate X animation: Starts on the right on desktop, stays centered on mobile
   const canvasX = useTransform(
     scrollYProgress,
     [0, 0.4, 0.7, 1],
-    isBackgroundMode ? ["0vw", "0vw", "0vw", "0vw"] : ["30vw", "0vw", "0vw", "32vw"]
+    isBackgroundMode 
+      ? ["0vw", "0vw", "0vw", "0vw"] 
+      : isMobile 
+        ? ["0vw", "0vw", "0vw", "0vw"] 
+        : ["30vw", "0vw", "0vw", "32vw"]
   );
 
   const [isAtTop, setIsAtTop] = useState(true);

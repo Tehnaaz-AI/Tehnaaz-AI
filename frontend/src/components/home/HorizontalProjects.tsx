@@ -65,18 +65,18 @@ export function HorizontalProjects() {
       <div className="w-full flex items-center overflow-hidden">
 
         {/* Intro text for the section */}
-        <div className="absolute left-12 md:left-24 top-2 pointer-events-none z-30">
-          <h2 className="text-xl md:text-3xl font-organic-sans font-black tracking-tighter uppercase text-black">
+        <div className="absolute left-4 sm:left-12 md:left-24 top-0 pointer-events-none z-30">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-organic-sans font-black tracking-tighter uppercase text-black">
             Projects
           </h2>
-          <div className="w-8 h-1 bg-black mt-2"></div>
+          <div className="w-8 h-1 bg-black mt-1 md:mt-2"></div>
         </div>
 
-        <div className="flex gap-8 px-12 pt-10 shrink-0 w-max animate-custom-marquee">
+        <div className="flex gap-6 sm:gap-8 px-4 sm:px-12 pt-10 shrink-0 w-max animate-custom-marquee">
           {LOOPING_PROJECTS.map((project, index) => (
             <div
               key={`${project.id}-${index}`}
-              className="w-[75vw] md:w-[300px] lg:w-[320px] h-[280px] bg-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between p-5 shrink-0 group relative overflow-hidden"
+              className="w-[82vw] sm:w-[320px] md:w-[340px] min-h-[290px] bg-white border-2 md:border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between p-5 shrink-0 group relative overflow-hidden"
             >
               {/* Background texture / detail */}
               <div className="absolute -right-12 -top-12 opacity-5 pointer-events-none transition-transform duration-700 group-hover:scale-110 group-hover:rotate-12">
@@ -87,13 +87,13 @@ export function HorizontalProjects() {
               </div>
 
               <div>
-                <span className="font-organic-mono text-xs font-bold tracking-widest text-black/50 uppercase">
+                <span className="font-organic-mono text-[10px] sm:text-xs font-bold tracking-widest text-black/50 uppercase">
                   Project 0{index + 1}
                 </span>
-                <h3 className="text-2xl md:text-3xl font-organic-sans font-black tracking-tighter text-black uppercase mt-1 mb-2 leading-tight line-clamp-1">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-organic-sans font-black tracking-tighter text-black uppercase mt-1 mb-2 leading-tight line-clamp-1">
                   {project.title}
                 </h3>
-                <p className="font-organic-mono text-xs md:text-sm text-black/80 max-w-md line-clamp-4">
+                <p className="font-organic-mono text-xs sm:text-sm text-black/80 max-w-md line-clamp-4 leading-relaxed">
                   {project.description}
                 </p>
               </div>
@@ -101,12 +101,12 @@ export function HorizontalProjects() {
               <div className="flex flex-col justify-end gap-3 mt-4">
                 <div className="flex flex-wrap gap-2">
                   {project.tags.slice(0, 2).map(tag => (
-                    <span key={tag} className="px-3 py-1.5 bg-black text-white font-organic-mono text-[10px] font-bold uppercase tracking-widest">
+                    <span key={tag} className="px-2.5 py-1 bg-black text-white font-organic-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest">
                       {tag}
                     </span>
                   ))}
                   {project.tags.length > 2 && (
-                    <span className="px-3 py-1.5 bg-black text-white font-organic-mono text-[10px] font-bold uppercase tracking-widest">
+                    <span className="px-2.5 py-1 bg-black text-white font-organic-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-widest">
                       +{project.tags.length - 2}
                     </span>
                   )}

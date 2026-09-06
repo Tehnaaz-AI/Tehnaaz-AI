@@ -66,37 +66,37 @@ const OTHER_PROJECTS = [
 
 function StickyProjectCardContent({ project, index, setSelectedImage }: any) {
   return (
-    <div className="flex flex-col md:flex-row gap-6 h-full">
+    <div className="flex flex-col md:flex-row gap-4 md:gap-6 h-full justify-between">
       {/* Text Section */}
       <div className="flex-1 flex flex-col justify-between order-2 md:order-1">
         <div>
-          <div className="flex justify-between items-start mb-4">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter text-black">
+          <div className="flex justify-between items-start mb-2 md:mb-4">
+            <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter text-black leading-tight">
               {project.title}
             </h2>
-            <span className="text-2xl md:text-5xl font-black text-black/10">
+            <span className="text-xl sm:text-3xl md:text-5xl font-black text-black/10 shrink-0 ml-2">
               {String(index + 1).padStart(2, '0')}
             </span>
           </div>
 
-          <p className="text-xs md:text-sm lg:text-base font-organic-mono leading-relaxed text-black/80 mt-2 md:mt-4 max-w-2xl line-clamp-4">
+          <p className="text-xs sm:text-sm lg:text-base font-organic-mono leading-relaxed text-black/80 mt-1 md:mt-4 max-w-2xl line-clamp-3 sm:line-clamp-4">
             {project.description}
           </p>
         </div>
 
-        <div className="flex justify-start mt-4 md:mt-0">
+        <div className="flex justify-start mt-3 md:mt-0">
           {project.link ? (
             <a
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 border-4 border-black bg-black text-white px-6 py-3 font-mono font-bold text-sm md:text-base uppercase tracking-widest hover:bg-white hover:text-black hover:translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#000] transition-all duration-300"
+              className="inline-flex items-center gap-2 md:gap-3 border-2 md:border-4 border-black bg-black text-white px-4 py-2 md:px-6 md:py-3 font-mono font-bold text-xs sm:text-sm md:text-base uppercase tracking-widest hover:bg-white hover:text-black hover:translate-x-1 hover:-translate-y-1 hover:shadow-[4px_4px_0_0_#000] transition-all duration-300"
             >
               <span>View Project</span>
-              <span className="text-xl">↗</span>
+              <span className="text-sm md:text-xl">↗</span>
             </a>
           ) : (
-            <div className="inline-block border-4 border-black/20 text-black/40 px-6 py-3 font-mono font-bold text-sm md:text-base uppercase tracking-widest cursor-not-allowed">
+            <div className="inline-block border-2 md:border-4 border-black/20 text-black/40 px-4 py-2 md:px-6 md:py-3 font-mono font-bold text-xs sm:text-sm md:text-base uppercase tracking-widest cursor-not-allowed">
               Offline / Internal
             </div>
           )}
@@ -105,7 +105,7 @@ function StickyProjectCardContent({ project, index, setSelectedImage }: any) {
 
       {/* Image Section */}
       <div
-        className="flex-1 relative order-1 md:order-2 h-40 md:h-full border-4 border-black overflow-hidden group bg-[#f4f4f4] flex items-center justify-center p-4 cursor-zoom-in"
+        className="flex-1 relative order-1 md:order-2 h-28 sm:h-40 md:h-full border-2 md:border-4 border-black overflow-hidden group bg-[#f4f4f4] flex items-center justify-center p-2 sm:p-4 cursor-zoom-in shrink-0"
         onClick={() => project.image && setSelectedImage(project.image)}
       >
         {project.image && (
@@ -122,60 +122,55 @@ function StickyProjectCardContent({ project, index, setSelectedImage }: any) {
 
 function OtherProjectsAccordion() {
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 py-32">
-      <div className="mb-12">
-        <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter border-b-4 border-black pb-4 inline-block">
+    <div className="w-full max-w-6xl mx-auto px-4 py-16 md:py-32">
+      <div className="mb-8 md:mb-12 text-center md:text-left">
+        <h3 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter border-b-4 border-black pb-3 inline-block">
           Other Projects
         </h3>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {OTHER_PROJECTS.map((project, i) => (
           <motion.div
             key={i}
-            initial="idle"
-            whileHover="hover"
-            className="group relative h-40 md:h-52 border-4 border-black bg-white cursor-pointer overflow-hidden shadow-[6px_6px_0_0_#000] transition-all duration-300 hover:scale-110 hover:shadow-[20px_20px_0_0_#000] hover:-translate-y-2 hover:-translate-x-2 hover:z-50"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: i * 0.05 }}
+            className="group relative min-h-[220px] md:min-h-[240px] border-4 border-black bg-white flex flex-col justify-between p-5 md:p-6 shadow-[6px_6px_0_0_#000] hover:shadow-[10px_10px_0_0_#000] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-300"
           >
-            {/* Title - Visible initially */}
-            <motion.div
-              variants={{
-                idle: { y: 0, opacity: 1 },
-                hover: { y: -20, opacity: 0 }
-              }}
-              transition={{ duration: 0.3 }}
-              className="absolute inset-0 p-6 flex flex-col justify-center"
-            >
-              <h4 className="text-xl md:text-2xl font-black uppercase tracking-tight line-clamp-2">
+            <div>
+              <div className="flex justify-between items-start mb-2">
+                <span className="font-organic-mono text-[10px] md:text-xs font-bold tracking-widest text-black/40 uppercase">
+                  Project 0{i + 4}
+                </span>
+              </div>
+              <h4 className="text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tight text-black line-clamp-2 mb-2">
                 {project.title}
               </h4>
-            </motion.div>
-
-            {/* Description - Reveals on hover */}
-            <motion.div
-              variants={{
-                idle: { y: 20, opacity: 0 },
-                hover: { y: 0, opacity: 1 }
-              }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-              className="absolute inset-0 p-4 md:p-6 bg-black text-white flex flex-col justify-center"
-            >
-              <h4 className="text-sm font-bold uppercase mb-2 text-white/50">{project.title}</h4>
-              <p className="text-xs md:text-sm font-organic-mono leading-relaxed mb-3">
+              <p className="text-xs sm:text-sm font-organic-mono leading-relaxed text-black/75 line-clamp-4">
                 {project.description}
               </p>
+            </div>
+
+            <div className="pt-4 mt-auto border-t border-black/10 flex items-center justify-between">
               {/* @ts-ignore */}
-              {(project.link || project.github) && (
+              {(project.link || project.github) ? (
                 <a
                   href={project.link || project.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-auto pointer-events-auto font-organic-mono text-xs font-bold tracking-widest border-b-2 border-white pb-0.5 hover:text-white/50 hover:border-white/50 transition-colors uppercase w-max"
+                  className="font-organic-mono text-xs font-bold tracking-widest border-b-2 border-black pb-0.5 hover:text-black/50 hover:border-black/50 transition-colors uppercase inline-flex items-center gap-1 group-hover:underline"
                 >
-                  {project.link ? 'View Project →' : 'View Code (GitHub) →'}
+                  <span>{project.link ? 'View Project' : 'View Code (GitHub)'}</span>
+                  <span>↗</span>
                 </a>
+              ) : (
+                <span className="font-organic-mono text-[11px] font-bold text-black/40 uppercase">
+                  Internal / Research
+                </span>
               )}
-            </motion.div>
+            </div>
           </motion.div>
         ))}
       </div>
@@ -286,10 +281,10 @@ export function Projects() {
                     style={{
                       y,
                       scale,
-                      top: `${i * 16}px`,
+                      top: `${i * 10}px`,
                       zIndex: 10 + i
                     }}
-                    className="absolute w-full max-w-5xl h-[55vh] md:h-[45vh] bg-white border-4 border-black p-6 md:p-8 shadow-[12px_12px_0_0_#000] flex flex-col justify-between transform-gpu"
+                    className="absolute w-full max-w-5xl h-[58vh] sm:h-[52vh] md:h-[46vh] bg-white border-2 md:border-4 border-black p-4 sm:p-6 md:p-8 shadow-[6px_6px_0_0_#000] md:shadow-[12px_12px_0_0_#000] flex flex-col justify-between transform-gpu"
                   >
                     <StickyProjectCardContent project={project} index={i} setSelectedImage={setSelectedImage} />
                   </motion.div>

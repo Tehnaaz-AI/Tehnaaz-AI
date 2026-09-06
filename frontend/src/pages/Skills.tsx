@@ -99,15 +99,18 @@ function SkillItem({
           z,
         }}
       >
-        <div className="font-organic-mono font-bold uppercase tracking-widest text-base md:text-xl text-black bg-white px-8 py-4 border border-black/20 rounded-full shadow-xl whitespace-nowrap text-center pointer-events-auto hover:bg-black hover:text-white transition-colors duration-300">
+        <div className="font-organic-mono font-bold uppercase tracking-widest text-xs sm:text-base md:text-xl text-black bg-white px-5 py-2.5 sm:px-8 sm:py-4 border border-black/20 rounded-full shadow-xl whitespace-nowrap text-center pointer-events-auto hover:bg-black hover:text-white transition-colors duration-300">
           {interest.name}
         </div>
       </motion.div>
 
       {/* Independent Certificate Image (Vertical scroll only, no fading) */}
       <motion.div
-        className={`absolute top-1/2 -translate-y-1/2 w-56 md:w-80 rounded-md shadow-2xl overflow-hidden border-4 border-white backdrop-blur-sm z-20 ${interest.side === 'left' ? 'right-[60%] md:right-[65%]' : 'left-[60%] md:left-[65%]'
-          }`}
+        className={`absolute top-1/2 -translate-y-1/2 w-36 sm:w-56 md:w-80 rounded-md shadow-2xl overflow-hidden border-2 sm:border-4 border-white backdrop-blur-sm z-20 ${
+          interest.side === 'left' 
+            ? 'right-[53%] sm:right-[58%] md:right-[65%]' 
+            : 'left-[53%] sm:left-[58%] md:left-[65%]'
+        }`}
         style={{
           opacity: certOpacity,
           y: certY,
@@ -115,7 +118,7 @@ function SkillItem({
         }}
       >
         <div
-          className="relative group overflow-hidden rounded-md border-4 border-white cursor-pointer"
+          className="relative group overflow-hidden rounded-md border-2 sm:border-4 border-white cursor-pointer"
           onClick={onSelect}
         >
           <img
@@ -123,7 +126,7 @@ function SkillItem({
             alt={interest.certLabel}
             className="w-full h-auto object-cover hover:scale-110 transition-transform duration-500"
           />
-          <div className="absolute bottom-0 left-0 w-full bg-black/80 backdrop-blur-sm text-white text-center py-2 px-2 font-organic-mono text-[10px] md:text-xs font-bold uppercase tracking-widest">
+          <div className="absolute bottom-0 left-0 w-full bg-black/80 backdrop-blur-sm text-white text-center py-1 sm:py-2 px-1 sm:px-2 font-organic-mono text-[8px] sm:text-[10px] md:text-xs font-bold uppercase tracking-widest">
             {interest.certLabel}
           </div>
         </div>
