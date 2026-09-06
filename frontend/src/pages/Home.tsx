@@ -41,12 +41,12 @@ export function Home() {
           <div className="w-full h-[100vh] pointer-events-none" />
 
           {/* Middle Section: Projects Gallery */}
-          <div className="relative z-20 pointer-events-auto bg-white">
+          <div className="relative z-20 pointer-events-auto bg-transparent">
             <HorizontalProjects />
           </div>
 
           {/* Journey Teaser Section */}
-          <div className="relative z-20 pointer-events-auto bg-white">
+          <div className="relative z-20 pointer-events-auto bg-transparent">
             <HomeJourneyTeaser />
           </div>
 
