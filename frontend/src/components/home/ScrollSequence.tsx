@@ -51,18 +51,18 @@ export function ScrollSequence({ isBackgroundMode = false }: { isBackgroundMode?
     isBackgroundMode 
       ? [0.5, 0.5, 0.5, 0.5, 0.5] 
       : isMobile 
-        ? [0.8, 0.85, 0.7, 0.55, 0.5] 
+        ? [0.75, 0.85, 0.7, 0.52, 0.44] 
         : [0.65, 0.95, 0.8, 0.6, 0.52]
   );
 
-  // Translate animation: Spaced below hero name on mobile (16vh), lands in center of bottom orbit (-14vh)
+  // Translate animation: Spaced below hero name on mobile (20vh), lands in exact center of bottom orbit (-20vh)
   const canvasY = useTransform(
     scrollYProgress,
     [0, 0.4, 0.7, 0.85, 1],
     isBackgroundMode 
       ? ["0vh", "0vh", "0vh", "0vh", "0vh"] 
       : isMobile 
-        ? ["16vh", "0vh", "0vh", "-6vh", "-14vh"] 
+        ? ["20vh", "0vh", "0vh", "-8vh", "-20vh"] 
         : ["0vh", "0vh", "0vh", "0vh", "0vh"]
   );
 
@@ -74,7 +74,7 @@ export function ScrollSequence({ isBackgroundMode = false }: { isBackgroundMode?
       ? ["0vw", "0vw", "0vw", "0vw"] 
       : isMobile 
         ? ["0vw", "0vw", "0vw", "0vw"] 
-        : ["30vw", "0vw", "0vw", "30vw"]
+        : ["30vw", "0vw", "0vw", "32vw"]
   );
 
   // Visible across entire scroll on both mobile and laptop

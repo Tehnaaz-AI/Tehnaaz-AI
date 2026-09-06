@@ -22,7 +22,7 @@ export function Home() {
 
           {/* Top Section: Watermark Name (Sticky only during Hero) */}
           <div className="absolute top-0 left-0 w-full z-10 pointer-events-none h-[120vh]">
-            <div className="sticky top-0 h-screen w-full flex items-start md:items-center justify-center md:justify-start overflow-hidden px-4 sm:px-12 md:px-24 pt-16 sm:pt-20 md:pt-0">
+            <div className="sticky top-0 h-screen w-full flex items-start md:items-center justify-center md:justify-start overflow-hidden px-4 sm:px-12 md:px-24 pt-28 sm:pt-36 md:pt-0">
               <motion.div
                 style={{ opacity: nameOpacity, scale: nameScale, transformOrigin: 'center top' }}
                 className="flex flex-col text-center md:text-left items-center md:items-start max-w-[95vw] md:max-w-[50vw]"
@@ -30,7 +30,7 @@ export function Home() {
                 <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-[8vw] leading-[0.9] font-sans font-black tracking-tight text-black uppercase">
                   Tehnaaz <br className="hidden md:inline" /> Fathima
                 </h1>
-                <p className="mt-2 sm:mt-4 md:mt-8 font-organic-mono text-xs sm:text-sm md:text-xl text-black/70 max-w-lg tracking-widest uppercase leading-relaxed text-center md:text-left">
+                <p className="mt-3 sm:mt-5 md:mt-8 font-organic-mono text-xs sm:text-sm md:text-xl text-black/70 max-w-lg tracking-widest uppercase leading-relaxed text-center md:text-left">
                   Curious by nature. Building by choice.
                 </p>
               </motion.div>
