@@ -44,25 +44,25 @@ export function ScrollSequence({ isBackgroundMode = false }: { isBackgroundMode?
   // Yoyo effect: 0 -> 239 -> 0
   const frameIndex = useTransform(scrollYProgress, [0, 0.5, 1], [0, FRAME_COUNT - 1, 0]);
 
-  // Scale animation: Starts small, grows slightly, and shrinks to a very small size at the end
+  // Scale animation: Large and prominent on mobile hero, shrinking smoothly
   const canvasScale = useTransform(
     scrollYProgress,
-    [0, 0.4, 0.7, 0.85, 1],
+    [0, 0.35, 0.65, 0.85, 1],
     isBackgroundMode 
       ? [0.5, 0.5, 0.5, 0.5, 0.5] 
       : isMobile 
-        ? [0.55, 0.75, 0.65, 0.5, 0.35] 
+        ? [0.8, 0.9, 0.7, 0.45, 0.3] 
         : [0.65, 0.95, 0.8, 0.6, 0.45]
   );
 
-  // Translate animation: Moves it down cleanly on mobile so hero text sits above it
+  // Translate animation: Stays centered in viewport
   const canvasY = useTransform(
     scrollYProgress,
     [0, 0.4, 0.7, 0.85, 1],
     isBackgroundMode 
       ? ["0vh", "0vh", "0vh", "0vh", "0vh"] 
       : isMobile 
-        ? ["16vh", "10vh", "0vh", "0vh", "8vh"] 
+        ? ["2vh", "0vh", "0vh", "0vh", "0vh"] 
         : ["0vh", "0vh", "0vh", "0vh", "15vh"]
   );
 
@@ -75,6 +75,13 @@ export function ScrollSequence({ isBackgroundMode = false }: { isBackgroundMode?
       : isMobile 
         ? ["0vw", "0vw", "0vw", "0vw"] 
         : ["30vw", "0vw", "0vw", "32vw"]
+  );
+
+  // Fade out on mobile near bottom so it never clutters behind the photo globe
+  const canvasOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.7, 0.85, 1],
+    isMobile ? [1, 1, 0, 0] : [1, 1, 1, 1]
   );
 
   const [isAtTop, setIsAtTop] = useState(true);
@@ -160,6 +167,7 @@ export function ScrollSequence({ isBackgroundMode = false }: { isBackgroundMode?
             scale: canvasScale,
             y: canvasY,
             x: canvasX,
+            opacity: canvasOpacity,
             transformOrigin: "center center"
           }}
           className="w-full h-full object-cover mix-blend-multiply"

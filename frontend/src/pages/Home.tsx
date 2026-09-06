@@ -7,7 +7,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 export function Home() {
   const { scrollYProgress } = useScroll();
-  const nameOpacity = useTransform(scrollYProgress, [0, 0.2, 0.7, 1], [1, 0.05, 0.05, 0], { clamp: true });
+  const nameOpacity = useTransform(scrollYProgress, [0, 0.15, 0.5, 0.8], [1, 0.05, 0.05, 0], { clamp: true });
   const nameScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9], { clamp: true });
 
   return (
@@ -20,7 +20,7 @@ export function Home() {
           <ScrollSequence />
 
           {/* Top Section: Watermark Name (Sticky) */}
-          <div className="absolute top-0 left-0 w-full z-10 pointer-events-none h-[180vh] md:h-[250vh]">
+          <div className="absolute top-0 left-0 w-full z-10 pointer-events-none h-[200vh] md:h-[250vh]">
             <div className="sticky top-0 h-screen w-full flex items-start md:items-center justify-start overflow-hidden px-6 sm:px-12 md:px-24 pt-24 sm:pt-32 md:pt-0">
               <motion.div
                 style={{ opacity: nameOpacity, scale: nameScale, transformOrigin: 'left top' }}
@@ -36,8 +36,8 @@ export function Home() {
             </div>
           </div>
 
-          {/* Spacer to allow scrolling through the Name animation before hitting projects */}
-          <div className="w-full h-[60vh] md:h-[100vh] pointer-events-none" />
+          {/* Spacer to allow scrolling through the Arc Reactor animation before hitting projects */}
+          <div className="w-full h-[110vh] md:h-[100vh] pointer-events-none" />
 
           {/* Middle Section: Projects Gallery */}
           <div className="relative z-20 pointer-events-auto bg-white/80 backdrop-blur-sm">
