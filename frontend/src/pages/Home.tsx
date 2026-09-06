@@ -7,8 +7,9 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 export function Home() {
   const { scrollYProgress } = useScroll();
-  const nameOpacity = useTransform(scrollYProgress, [0, 0.15, 0.5, 0.8], [1, 0.05, 0.05, 0], { clamp: true });
-  const nameScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9], { clamp: true });
+  // Name fades out smoothly and completely before leaving the hero section
+  const nameOpacity = useTransform(scrollYProgress, [0, 0.08, 0.14], [1, 0.4, 0], { clamp: true });
+  const nameScale = useTransform(scrollYProgress, [0, 0.15], [1, 0.9], { clamp: true });
 
   return (
     <PageTransition>
@@ -19,17 +20,17 @@ export function Home() {
 
           <ScrollSequence />
 
-          {/* Top Section: Watermark Name (Sticky) */}
-          <div className="absolute top-0 left-0 w-full z-10 pointer-events-none h-[200vh] md:h-[250vh]">
-            <div className="sticky top-0 h-screen w-full flex items-start md:items-center justify-center md:justify-start overflow-hidden px-4 sm:px-12 md:px-24 pt-20 sm:pt-28 md:pt-0">
+          {/* Top Section: Watermark Name (Sticky only during Hero) */}
+          <div className="absolute top-0 left-0 w-full z-10 pointer-events-none h-[120vh]">
+            <div className="sticky top-0 h-screen w-full flex items-start md:items-center justify-center md:justify-start overflow-hidden px-4 sm:px-12 md:px-24 pt-16 sm:pt-20 md:pt-0">
               <motion.div
                 style={{ opacity: nameOpacity, scale: nameScale, transformOrigin: 'center top' }}
                 className="flex flex-col text-center md:text-left items-center md:items-start max-w-[95vw] md:max-w-[50vw]"
               >
-                <h1 className="text-5xl sm:text-7xl md:text-[8vw] leading-[0.9] font-sans font-black tracking-tight text-black uppercase">
+                <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-[8vw] leading-[0.9] font-sans font-black tracking-tight text-black uppercase">
                   Tehnaaz <br className="hidden md:inline" /> Fathima
                 </h1>
-                <p className="mt-3 sm:mt-5 md:mt-8 font-organic-mono text-xs sm:text-sm md:text-xl text-black/70 max-w-lg tracking-widest uppercase leading-relaxed text-center md:text-left">
+                <p className="mt-2 sm:mt-4 md:mt-8 font-organic-mono text-xs sm:text-sm md:text-xl text-black/70 max-w-lg tracking-widest uppercase leading-relaxed text-center md:text-left">
                   Curious by nature. Building by choice.
                 </p>
               </motion.div>
@@ -37,15 +38,15 @@ export function Home() {
           </div>
 
           {/* Spacer to allow scrolling through the Arc Reactor animation before hitting projects */}
-          <div className="w-full h-[110vh] md:h-[100vh] pointer-events-none" />
+          <div className="w-full h-[100vh] pointer-events-none" />
 
           {/* Middle Section: Projects Gallery */}
-          <div className="relative z-20 pointer-events-auto bg-white/80 backdrop-blur-sm">
+          <div className="relative z-20 pointer-events-auto bg-white">
             <HorizontalProjects />
           </div>
 
           {/* Journey Teaser Section */}
-          <div className="relative z-20 pointer-events-auto bg-transparent">
+          <div className="relative z-20 pointer-events-auto bg-white">
             <HomeJourneyTeaser />
           </div>
 

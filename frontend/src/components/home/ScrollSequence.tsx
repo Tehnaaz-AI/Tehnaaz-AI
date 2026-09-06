@@ -51,18 +51,18 @@ export function ScrollSequence({ isBackgroundMode = false }: { isBackgroundMode?
     isBackgroundMode 
       ? [0.5, 0.5, 0.5, 0.5, 0.5] 
       : isMobile 
-        ? [0.85, 0.95, 0.75, 0.5, 0.3] 
+        ? [0.95, 0.9, 0.7, 0.45, 0.3] 
         : [0.65, 0.95, 0.8, 0.6, 0.45]
   );
 
-  // Translate animation: Positioned directly below the centered name on mobile hero (18vh), then moves smoothly
+  // Translate animation: Perfectly balances below the centered name to fill vertical screen
   const canvasY = useTransform(
     scrollYProgress,
     [0, 0.4, 0.7, 0.85, 1],
     isBackgroundMode 
       ? ["0vh", "0vh", "0vh", "0vh", "0vh"] 
       : isMobile 
-        ? ["18vh", "10vh", "0vh", "0vh", "0vh"] 
+        ? ["10vh", "5vh", "0vh", "0vh", "0vh"] 
         : ["0vh", "0vh", "0vh", "0vh", "15vh"]
   );
 
@@ -77,11 +77,11 @@ export function ScrollSequence({ isBackgroundMode = false }: { isBackgroundMode?
         : ["30vw", "0vw", "0vw", "32vw"]
   );
 
-  // Fade out on mobile near bottom so it never clutters behind the photo globe
+  // Fade out on mobile cleanly when scrolling towards projects and journey
   const canvasOpacity = useTransform(
     scrollYProgress,
-    [0, 0.7, 0.85, 1],
-    isMobile ? [1, 1, 0, 0] : [1, 1, 1, 1]
+    [0, 0.45, 0.7, 1],
+    isMobile ? [1, 0.8, 0, 0] : [1, 1, 1, 1]
   );
 
   const [isAtTop, setIsAtTop] = useState(true);

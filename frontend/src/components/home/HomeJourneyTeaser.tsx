@@ -22,7 +22,7 @@ export function HomeJourneyTeaser() {
   return (
     <div 
       ref={containerRef} 
-      className="relative w-full h-[95vh] md:h-[85vh] bg-transparent overflow-hidden border-t-4 md:border-t-8 border-black pointer-events-none"
+      className="relative w-full h-[95vh] md:h-[85vh] bg-white overflow-hidden border-t-4 md:border-t-8 border-black pointer-events-none"
     >
       
       {/* ORBIT CLUSTER (Circular Photos) */}
