@@ -113,7 +113,7 @@ export function HorizontalProjects() {
                 </div>
 
                 {project.link || project.github ? (
-                  <a 
+                  <a
                     href={project.link || project.github}
                     target="_blank"
                     rel="noreferrer"

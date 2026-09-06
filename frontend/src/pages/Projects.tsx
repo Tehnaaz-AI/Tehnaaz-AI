@@ -78,7 +78,7 @@ function StickyProjectCardContent({ project, index, setSelectedImage }: any) {
               {String(index + 1).padStart(2, '0')}
             </span>
           </div>
-          
+
           <p className="text-xs md:text-sm lg:text-base font-organic-mono leading-relaxed text-black/80 mt-2 md:mt-4 max-w-2xl line-clamp-4">
             {project.description}
           </p>
@@ -86,7 +86,7 @@ function StickyProjectCardContent({ project, index, setSelectedImage }: any) {
 
         <div className="flex justify-start mt-4 md:mt-0">
           {project.link ? (
-            <a 
+            <a
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
@@ -104,14 +104,14 @@ function StickyProjectCardContent({ project, index, setSelectedImage }: any) {
       </div>
 
       {/* Image Section */}
-      <div 
+      <div
         className="flex-1 relative order-1 md:order-2 h-40 md:h-full border-4 border-black overflow-hidden group bg-[#f4f4f4] flex items-center justify-center p-4 cursor-zoom-in"
         onClick={() => project.image && setSelectedImage(project.image)}
       >
         {project.image && (
-          <img 
-            src={project.image} 
-            alt={project.title} 
+          <img
+            src={project.image}
+            alt={project.title}
             className="w-full h-full object-contain transition-all duration-700 hover:scale-105"
           />
         )}
@@ -128,17 +128,17 @@ function OtherProjectsAccordion() {
           Other Projects
         </h3>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {OTHER_PROJECTS.map((project, i) => (
-          <motion.div 
+          <motion.div
             key={i}
             initial="idle"
             whileHover="hover"
             className="group relative h-40 md:h-52 border-4 border-black bg-white cursor-pointer overflow-hidden shadow-[6px_6px_0_0_#000] transition-all duration-300 hover:scale-110 hover:shadow-[20px_20px_0_0_#000] hover:-translate-y-2 hover:-translate-x-2 hover:z-50"
           >
             {/* Title - Visible initially */}
-            <motion.div 
+            <motion.div
               variants={{
                 idle: { y: 0, opacity: 1 },
                 hover: { y: -20, opacity: 0 }
@@ -152,7 +152,7 @@ function OtherProjectsAccordion() {
             </motion.div>
 
             {/* Description - Reveals on hover */}
-            <motion.div 
+            <motion.div
               variants={{
                 idle: { y: 20, opacity: 0 },
                 hover: { y: 0, opacity: 1 }
@@ -166,7 +166,7 @@ function OtherProjectsAccordion() {
               </p>
               {/* @ts-ignore */}
               {(project.link || project.github) && (
-                <a 
+                <a
                   href={project.link || project.github}
                   target="_blank"
                   rel="noreferrer"
@@ -187,7 +187,7 @@ export function Projects() {
   const container = useRef(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [majorProjects, setMajorProjects] = useState<any[]>(MAJOR_PROJECTS);
-  
+
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ['start start', 'end end']
@@ -209,7 +209,7 @@ export function Projects() {
   return (
     <PageTransition>
       <div className="w-full bg-[#f4f4f4] min-h-screen text-black selection:bg-black selection:text-white">
-        
+
         {/* Modal Portal */}
         {createPortal(
           <AnimatePresence>
@@ -239,7 +239,7 @@ export function Projects() {
         <div ref={container} className="relative h-[300vh]">
           {/* Sticky Wrapper */}
           <div className="sticky top-0 h-screen w-full flex flex-col pt-24 md:pt-28 overflow-hidden">
-            
+
             {/* Header Group */}
             <div className="w-full flex flex-col items-center gap-4 mb-4 z-20 shrink-0">
               <a
@@ -261,7 +261,7 @@ export function Projects() {
             <div className="relative w-full flex-1 flex justify-center px-4 mt-0 md:-mt-2">
               {majorProjects.map((project, i) => {
                 const N = MAJOR_PROJECTS.length;
-                
+
                 // y mapping: Card 0 is always at 0. Card 1 slides up from 0 to 0.5. Card 2 from 0.5 to 1.
                 const startProgress = i === 0 ? 0 : (i - 1) / (N - 1);
                 const endProgress = i === 0 ? 0 : i / (N - 1);
@@ -281,13 +281,13 @@ export function Projects() {
                 );
 
                 return (
-                  <motion.div 
+                  <motion.div
                     key={project.title}
-                    style={{ 
-                      y, 
-                      scale, 
-                      top: `${i * 16}px`, 
-                      zIndex: 10 + i 
+                    style={{
+                      y,
+                      scale,
+                      top: `${i * 16}px`,
+                      zIndex: 10 + i
                     }}
                     className="absolute w-full max-w-5xl h-[55vh] md:h-[45vh] bg-white border-4 border-black p-6 md:p-8 shadow-[12px_12px_0_0_#000] flex flex-col justify-between transform-gpu"
                   >

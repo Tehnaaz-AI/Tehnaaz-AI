@@ -9,7 +9,7 @@
   --color-accent-violet: #000000;
   --color-accent-warm: #000000;
   --color-off-white: #000000;
-  
+
   --font-sans: 'Syncopate', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -20,7 +20,7 @@
   --color-organic-accent: #000000;
   --color-organic-dark: #000000;
   --color-organic-muted: #666666;
-  
+
   --font-organic-sans: 'Space Grotesk', system-ui, sans-serif;
   --font-organic-mono: 'IBM Plex Mono', monospace;
 }
@@ -50,6 +50,7 @@
     html {
       scroll-behavior: auto;
     }
+
     *,
     *::before,
     *::after {

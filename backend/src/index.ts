@@ -16,8 +16,22 @@ if (process.env.MONGO_URI) {
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// Configure CORS
+const allowedOrigins = process.env.CLIENT_URL
+  ? [process.env.CLIENT_URL, 'http://localhost:5173', 'http://localhost:3000']
+  : '*';
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
+
 app.use(express.json());
+
+// Root & Health check routes
+app.get('/', (_req, res) => {
+  res.json({ status: 'ok', message: 'Tehnaaz Portfolio API online.' });
+});
 
 // API Routes
 app.use('/api', apiRoutes);

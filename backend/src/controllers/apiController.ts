@@ -67,9 +67,10 @@ export const handleContact = async (req: Request, res: Response) => {
         }
       });
 
+      const recipientEmail = process.env.EMAIL_TO || process.env.EMAIL_USER || '24eg106c63@anurag.edu.in';
       const mailOptions = {
         from: process.env.EMAIL_USER,
-        to: '24eg106c63@anurag.edu.in', // User's email
+        to: recipientEmail,
         subject: `New Portfolio Message from ${name}`,
         text: `You have received a new message from your portfolio website!\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
         replyTo: email,

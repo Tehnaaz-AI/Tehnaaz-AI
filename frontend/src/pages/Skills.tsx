@@ -114,7 +114,7 @@ function SkillItem({
           pointerEvents: certPointerEvents as any,
         }}
       >
-        <div 
+        <div
           className="relative group overflow-hidden rounded-md border-4 border-white cursor-pointer"
           onClick={onSelect}
         >
@@ -157,7 +157,7 @@ export function Skills() {
   return (
     <PageTransition>
       <div className="relative w-full bg-white selection:bg-black selection:text-white">
-        
+
         {/* Background Arc Reactor animation */}
         <div className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none">
           <ScrollSequence isBackgroundMode={true} />
@@ -174,8 +174,8 @@ export function Skills() {
           <div className="w-24 h-2 bg-black mt-6 mb-12"></div>
           <p className="font-organic-mono text-black/60 max-w-xl text-center flex flex-col items-center gap-4">
             <span>Scroll down to explore my expertise.</span>
-            <motion.div 
-              animate={{ y: [0, 10, 0] }} 
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
               className="w-px h-12 bg-black/40 mt-4"
             />
@@ -188,27 +188,27 @@ export function Skills() {
           {/* Sticky wrapper */}
           <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden z-10 pointer-events-none" style={{ perspective: "1000px" }}>
 
-          {/* 3D Container */}
-          <div className="relative flex items-center justify-center w-full h-full" style={{ transformStyle: "preserve-3d" }}>
-            {skills.map((interest, index) => (
-              <SkillItem
-                key={interest.name}
-                interest={interest}
-                index={index}
-                scrollYProgress={scrollYProgress}
-                onSelect={() => setSelectedCert(interest)}
-              />
-            ))}
-          </div>
+            {/* 3D Container */}
+            <div className="relative flex items-center justify-center w-full h-full" style={{ transformStyle: "preserve-3d" }}>
+              {skills.map((interest, index) => (
+                <SkillItem
+                  key={interest.name}
+                  interest={interest}
+                  index={index}
+                  scrollYProgress={scrollYProgress}
+                  onSelect={() => setSelectedCert(interest)}
+                />
+              ))}
+            </div>
 
-          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 text-black/40 font-organic-mono text-xs uppercase tracking-widest flex flex-col items-center gap-2 pointer-events-none">
-            <span>Scroll to explore</span>
-            <div className="w-px h-8 bg-black/20"></div>
-          </div>
+            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 text-black/40 font-organic-mono text-xs uppercase tracking-widest flex flex-col items-center gap-2 pointer-events-none">
+              <span>Scroll to explore</span>
+              <div className="w-px h-8 bg-black/20"></div>
+            </div>
 
+          </div>
         </div>
       </div>
-    </div>
 
       {/* Lightbox Modal */}
       {typeof document !== 'undefined' && createPortal(
@@ -230,21 +230,21 @@ export function Skills() {
                 onClick={(e) => e.stopPropagation()} // Prevent click from closing when clicking inside
               >
                 {/* Close button */}
-                <button 
+                <button
                   onClick={() => setSelectedCert(null)}
                   className="absolute top-4 right-4 z-10 bg-black text-white w-10 h-10 flex items-center justify-center font-bold text-xl hover:bg-black/80 transition-colors"
                 >
                   ×
                 </button>
-                
+
                 <div className="w-full max-h-[70vh] bg-gray-100 flex items-center justify-center p-4">
-                  <img 
-                    src={selectedCert.cert} 
+                  <img
+                    src={selectedCert.cert}
                     alt={selectedCert.certLabel}
                     className="max-w-full max-h-[60vh] object-contain border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
                   />
                 </div>
-                
+
                 <div className="w-full bg-white p-6 md:p-8 border-t-4 border-black text-center">
                   <h3 className="font-organic-sans text-3xl md:text-5xl font-black tracking-tighter uppercase text-black leading-none mb-2">
                     {selectedCert.certLabel}
