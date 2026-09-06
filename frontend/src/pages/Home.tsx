@@ -21,15 +21,15 @@ export function Home() {
 
           {/* Top Section: Watermark Name (Sticky) */}
           <div className="absolute top-0 left-0 w-full z-10 pointer-events-none h-[200vh] md:h-[250vh]">
-            <div className="sticky top-0 h-screen w-full flex items-start md:items-center justify-start overflow-hidden px-6 sm:px-12 md:px-24 pt-24 sm:pt-32 md:pt-0">
+            <div className="sticky top-0 h-screen w-full flex items-start md:items-center justify-center md:justify-start overflow-hidden px-4 sm:px-12 md:px-24 pt-20 sm:pt-28 md:pt-0">
               <motion.div
-                style={{ opacity: nameOpacity, scale: nameScale, transformOrigin: 'left top' }}
-                className="flex flex-col text-left max-w-[90vw] md:max-w-[50vw]"
+                style={{ opacity: nameOpacity, scale: nameScale, transformOrigin: 'center top' }}
+                className="flex flex-col text-center md:text-left items-center md:items-start max-w-[95vw] md:max-w-[50vw]"
               >
-                <h1 className="text-4xl sm:text-6xl md:text-[8vw] leading-[0.95] font-sans font-black tracking-tight text-black uppercase">
-                  Tehnaaz <br /> Fathima
+                <h1 className="text-5xl sm:text-7xl md:text-[8vw] leading-[0.9] font-sans font-black tracking-tight text-black uppercase">
+                  Tehnaaz <br className="hidden md:inline" /> Fathima
                 </h1>
-                <p className="mt-4 sm:mt-6 md:mt-8 font-organic-mono text-xs sm:text-sm md:text-xl text-black/60 max-w-lg tracking-widest uppercase leading-relaxed">
+                <p className="mt-3 sm:mt-5 md:mt-8 font-organic-mono text-xs sm:text-sm md:text-xl text-black/70 max-w-lg tracking-widest uppercase leading-relaxed text-center md:text-left">
                   Curious by nature. Building by choice.
                 </p>
               </motion.div>

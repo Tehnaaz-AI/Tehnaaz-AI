@@ -22,23 +22,23 @@ export function HomeJourneyTeaser() {
   return (
     <div 
       ref={containerRef} 
-      className="relative w-full h-[85vh] md:h-[80vh] bg-transparent overflow-hidden border-t-4 md:border-t-8 border-black pointer-events-none"
+      className="relative w-full h-[95vh] md:h-[85vh] bg-transparent overflow-hidden border-t-4 md:border-t-8 border-black pointer-events-none"
     >
       
-      {/* LEFT: Orbit Globe Cluster */}
-      <div className="absolute top-[32%] md:top-[52%] left-[50%] md:left-[5vw] -translate-x-1/2 md:translate-x-0 -translate-y-1/2 pointer-events-auto flex items-center justify-center">
+      {/* ORBIT CLUSTER (Circular Photos) */}
+      <div className="absolute top-[36%] md:top-[50%] left-[50%] md:left-[6vw] -translate-x-1/2 md:translate-x-0 -translate-y-1/2 pointer-events-auto flex items-center justify-center">
         <motion.div 
           style={{ rotate: rotation }}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="relative flex items-center justify-center w-48 h-48 sm:w-56 sm:h-56 md:w-80 md:h-80 cursor-pointer"
+          className="relative flex items-center justify-center w-64 h-64 sm:w-72 sm:h-72 md:w-88 md:h-88 cursor-pointer"
         >
           {photos.map((photo, index) => {
             const angleDeg = (index / photos.length) * 360;
             const angleRad = (angleDeg * Math.PI) / 180;
             
-            const radiusDesktop = 115; 
-            const radiusMobile = 70;
+            const radiusDesktop = 120; 
+            const radiusMobile = 100;
             
             const xDesktop = Math.cos(angleRad) * radiusDesktop;
             const yDesktop = Math.sin(angleRad) * radiusDesktop;
@@ -59,7 +59,7 @@ export function HomeJourneyTeaser() {
                 }}
                 className="flex items-center justify-center"
               >
-                {/* Desktop item */}
+                {/* Desktop item (Large Circular) */}
                 <motion.div
                   style={{
                     x: xDesktop,
@@ -69,13 +69,13 @@ export function HomeJourneyTeaser() {
                 >
                   <motion.div
                     style={{ rotate: photoCounterRotation }}
-                    className="w-22 h-22 lg:w-26 lg:h-26 border-4 border-black shadow-[6px_6px_0_0_#000] overflow-hidden bg-black"
+                    className="w-24 h-24 lg:w-28 lg:h-28 rounded-full border-4 border-black shadow-[5px_5px_0_0_#000] overflow-hidden bg-black"
                   >
                     <img src={photo.image} alt={photo.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
                   </motion.div>
                 </motion.div>
 
-                {/* Mobile / Tablet item */}
+                {/* Mobile / Tablet item (Big Circular) */}
                 <motion.div
                   style={{
                     x: xMobile,
@@ -85,7 +85,7 @@ export function HomeJourneyTeaser() {
                 >
                   <motion.div
                     style={{ rotate: photoCounterRotation }}
-                    className="w-13 h-13 sm:w-16 sm:h-16 border-2 border-black shadow-[3px_3px_0_0_#000] overflow-hidden bg-black"
+                    className="w-18 h-18 sm:w-22 sm:h-22 rounded-full border-3 border-black shadow-[4px_4px_0_0_#000] overflow-hidden bg-black"
                   >
                     <img src={photo.image} alt={photo.title} className="w-full h-full object-cover" />
                   </motion.div>
@@ -96,8 +96,8 @@ export function HomeJourneyTeaser() {
         </motion.div>
       </div>
 
-      {/* CENTER: Timeline Text & CTA Button (Positioned in the center channel between Orbit and Arc Reactor) */}
-      <div className="absolute top-[75%] md:top-[52%] left-[50%] md:left-[48%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-auto z-20 text-center w-max max-w-[90vw] md:max-w-md">
+      {/* CENTER: Timeline Text & CTA Button */}
+      <div className="absolute top-[80%] md:top-[50%] left-[50%] md:left-[48%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-auto z-20 text-center w-max max-w-[90vw] md:max-w-md">
         
         {/* University Badge */}
         <div className="mb-3 md:mb-5 text-black font-black bg-black/5 px-4 py-1.5 md:py-2 rounded-full border border-black/10 shadow-sm text-xs sm:text-sm uppercase tracking-widest">
