@@ -20,25 +20,24 @@ export function Home() {
           <ScrollSequence />
 
           {/* Top Section: Watermark Name (Sticky) */}
-          <div className="absolute top-0 left-0 w-full z-10 pointer-events-none h-[250vh]">
-            <div className="sticky top-0 h-screen w-full flex items-center justify-start overflow-hidden px-12 md:px-24">
+          <div className="absolute top-0 left-0 w-full z-10 pointer-events-none h-[180vh] md:h-[250vh]">
+            <div className="sticky top-0 h-screen w-full flex items-center justify-start overflow-hidden px-6 sm:px-12 md:px-24">
               <motion.div
                 style={{ opacity: nameOpacity, scale: nameScale, transformOrigin: 'left center' }}
-                className="flex flex-col text-left max-w-[50vw]"
+                className="flex flex-col text-left max-w-[85vw] md:max-w-[50vw]"
               >
-                <h1 className="text-[8vw] md:text-[9vw] lg:text-[8vw] leading-[0.95] font-sans font-black tracking-tight text-black uppercase">
+                <h1 className="text-4xl sm:text-6xl md:text-[8vw] leading-[0.95] font-sans font-black tracking-tight text-black uppercase">
                   Tehnaaz <br /> Fathima
                 </h1>
-                <p className="mt-6 md:mt-8 font-organic-mono text-base md:text-xl text-black/60 max-w-lg tracking-widest uppercase leading-relaxed">
+                <p className="mt-4 sm:mt-6 md:mt-8 font-organic-mono text-xs sm:text-sm md:text-xl text-black/60 max-w-lg tracking-widest uppercase leading-relaxed">
                   Curious by nature. Building by choice.
                 </p>
               </motion.div>
             </div>
           </div>
 
-
           {/* Spacer to allow scrolling through the Name animation before hitting projects */}
-          <div className="w-full h-[100vh] pointer-events-none" />
+          <div className="w-full h-[60vh] md:h-[100vh] pointer-events-none" />
 
           {/* Middle Section: Projects Gallery */}
           <div className="relative z-20 pointer-events-auto bg-white/80 backdrop-blur-sm">

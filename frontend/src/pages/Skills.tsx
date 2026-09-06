@@ -106,10 +106,10 @@ function SkillItem({
 
       {/* Independent Certificate Image (Vertical scroll only, no fading) */}
       <motion.div
-        className={`absolute top-1/2 -translate-y-1/2 w-36 sm:w-56 md:w-80 rounded-md shadow-2xl overflow-hidden border-2 sm:border-4 border-white backdrop-blur-sm z-20 ${
+        className={`absolute top-[58%] md:top-1/2 -translate-y-1/2 w-52 sm:w-64 md:w-80 rounded-md shadow-2xl overflow-hidden border-2 sm:border-4 border-white backdrop-blur-sm z-20 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 ${
           interest.side === 'left' 
-            ? 'right-[53%] sm:right-[58%] md:right-[65%]' 
-            : 'left-[53%] sm:left-[58%] md:left-[65%]'
+            ? 'md:right-[62%] lg:right-[65%]' 
+            : 'md:left-[62%] lg:left-[65%]'
         }`}
         style={{
           opacity: certOpacity,
@@ -126,7 +126,7 @@ function SkillItem({
             alt={interest.certLabel}
             className="w-full h-auto object-cover hover:scale-110 transition-transform duration-500"
           />
-          <div className="absolute bottom-0 left-0 w-full bg-black/80 backdrop-blur-sm text-white text-center py-1 sm:py-2 px-1 sm:px-2 font-organic-mono text-[8px] sm:text-[10px] md:text-xs font-bold uppercase tracking-widest">
+          <div className="absolute bottom-0 left-0 w-full bg-black/80 backdrop-blur-sm text-white text-center py-1 sm:py-2 px-1 sm:px-2 font-organic-mono text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-widest">
             {interest.certLabel}
           </div>
         </div>
@@ -166,27 +166,27 @@ export function Skills() {
           <ScrollSequence isBackgroundMode={true} />
         </div>
 
-        {/* Hero Header Section (like Journey page) */}
-        <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center px-6 bg-white shadow-[0_10px_20px_-10px_rgba(0,0,0,0.1)]">
-          <div className="mb-8 text-black font-black bg-black/5 px-6 py-2 rounded-full border border-black/10 shadow-sm text-sm md:text-base uppercase tracking-widest">
+        {/* Hero Header Section */}
+        <div className="relative z-10 w-full min-h-[70vh] md:min-h-screen flex flex-col items-center justify-center px-6 bg-white shadow-[0_10px_20px_-10px_rgba(0,0,0,0.1)]">
+          <div className="mb-6 md:mb-8 text-black font-black bg-black/5 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full border border-black/10 shadow-sm text-xs sm:text-sm md:text-base uppercase tracking-widest">
             Technical Arsenal
           </div>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-sans font-black tracking-tighter uppercase text-black text-center">
+          <h1 className="text-4xl sm:text-7xl lg:text-8xl font-sans font-black tracking-tighter uppercase text-black text-center">
             Skills
           </h1>
-          <div className="w-24 h-2 bg-black mt-6 mb-12"></div>
-          <p className="font-organic-mono text-black/60 max-w-xl text-center flex flex-col items-center gap-4">
+          <div className="w-16 sm:w-24 h-1.5 sm:h-2 bg-black mt-4 sm:mt-6 mb-8 sm:mb-12"></div>
+          <p className="font-organic-mono text-black/60 text-xs sm:text-sm md:text-base max-w-xl text-center flex flex-col items-center gap-4">
             <span>Scroll down to explore my expertise.</span>
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-px h-12 bg-black/40 mt-4"
+              className="w-px h-8 sm:h-12 bg-black/40 mt-2 sm:mt-4"
             />
           </p>
         </div>
 
-        {/* 1500vh Container for the 3D scroll animation */}
-        <div ref={container} className="relative w-full h-[1500vh] bg-transparent">
+        {/* Dynamic Container for the 3D scroll animation */}
+        <div ref={container} className="relative w-full h-[600vh] md:h-[1200vh] bg-transparent">
 
           {/* Sticky wrapper */}
           <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden z-10 pointer-events-none" style={{ perspective: "1000px" }}>

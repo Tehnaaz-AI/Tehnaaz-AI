@@ -19,7 +19,7 @@ export function JourneyYearBlock({ data }: { data: JourneyYear }) {
 
   return (
     <>
-      <section ref={containerRef} style={{ height: `${data.photos.length * 60}vh` }} className="relative w-full bg-white">
+      <section ref={containerRef} style={{ height: `${data.photos.length * 50}vh` }} className="relative w-full bg-white">
         
         {/* Define CSS variable for the track width: 100vw on mobile, 60vw on desktop */}
         <style dangerouslySetInnerHTML={{__html: `
@@ -33,55 +33,55 @@ export function JourneyYearBlock({ data }: { data: JourneyYear }) {
           }
         `}} />
 
-        <div className="sticky top-0 h-screen w-full flex flex-col md:flex-row items-center overflow-hidden bg-white scroll-track-viewport">
+        <div className="sticky top-0 h-screen w-full flex flex-col md:flex-row items-center justify-between overflow-hidden bg-white scroll-track-viewport">
           
-          {/* Left Side: Sticky Text Context (40% width) */}
-          <div className="w-full md:w-[40%] h-[40vh] md:h-full shrink-0 flex flex-col justify-center px-8 md:pl-12 py-8 md:py-0 bg-white z-20 shadow-[0_10px_20px_-10px_rgba(0,0,0,0.1)] md:shadow-[10px_0_20px_-10px_rgba(0,0,0,0.1)] relative">
-            <div className="max-w-md pr-4">
-              <span className="font-organic-mono text-xs md:text-sm font-bold tracking-widest text-black/50 uppercase block mb-2 md:mb-3">
-                {data.year} <span className="mx-2 font-black text-black/20">•</span> <span className="text-black/80 font-black">Anurag University</span>
+          {/* Top/Left Side: Sticky Text Context */}
+          <div className="w-full md:w-[40%] h-auto md:h-full shrink-0 flex flex-col justify-center px-6 sm:px-8 md:pl-12 pt-20 pb-3 md:py-0 bg-white z-20 shadow-[0_4px_12px_rgba(0,0,0,0.05)] md:shadow-[10px_0_20px_-10px_rgba(0,0,0,0.1)] relative">
+            <div className="max-w-md pr-2 sm:pr-4">
+              <span className="font-organic-mono text-[10px] sm:text-xs md:text-sm font-bold tracking-widest text-black/50 uppercase block mb-1 sm:mb-2 md:mb-3">
+                {data.year} <span className="mx-1 sm:mx-2 font-black text-black/20">•</span> <span className="text-black/80 font-black">Anurag University</span>
               </span>
-              <h2 className="font-sans font-black text-3xl md:text-4xl uppercase tracking-tighter text-black leading-tight mb-4 md:mb-6">
+              <h2 className="font-sans font-black text-xl sm:text-2xl md:text-4xl uppercase tracking-tighter text-black leading-tight mb-1 sm:mb-3 md:mb-6">
                 {data.phase}
               </h2>
-              <p className="font-organic-mono font-bold text-xs md:text-sm text-black leading-relaxed">
+              <p className="font-organic-mono font-medium text-[11px] sm:text-xs md:text-sm text-black/80 leading-relaxed line-clamp-2 sm:line-clamp-3 md:line-clamp-none">
                 {data.description}
               </p>
             </div>
           </div>
 
-          {/* Right Side: Horizontally Scrolling Track (60% width) */}
-          <div className="w-full md:w-[60%] h-[60vh] md:h-full shrink-0 relative z-10 flex items-center bg-gray-50/50 overflow-hidden">
+          {/* Bottom/Right Side: Horizontally Scrolling Track */}
+          <div className="w-full md:w-[60%] flex-1 md:h-full shrink-0 relative z-10 flex items-center bg-gray-50/50 overflow-hidden py-3 md:py-0">
             <motion.div 
               style={{ x }}
-              className="flex gap-6 md:gap-10 items-center px-8 md:px-10 w-max"
+              className="flex gap-4 sm:gap-6 md:gap-10 items-center px-6 sm:px-8 md:px-10 w-max"
             >
               {data.photos.map((photo) => (
                 <div 
                   key={photo.id} 
-                  className="w-[70vw] md:w-[26vw] max-w-sm shrink-0 flex flex-col cursor-pointer"
+                  className="w-[72vw] sm:w-[50vw] md:w-[26vw] max-w-sm shrink-0 flex flex-col cursor-pointer"
                   onClick={() => setSelectedPhoto(photo)}
                 >
-                  <div className="aspect-[4/3] w-full bg-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden relative group">
+                  <div className="aspect-[16/10] sm:aspect-[4/3] w-full bg-black border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] md:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden relative group">
                     <img 
                       src={photo.image} 
                       alt={photo.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 pointer-events-none border-[4px] border-white/10 mix-blend-overlay group-hover:bg-black/10 transition-colors duration-300"></div>
+                    <div className="absolute inset-0 pointer-events-none border-[3px] border-white/10 mix-blend-overlay group-hover:bg-black/10 transition-colors duration-300"></div>
                   </div>
                   
-                  <div className="mt-4 md:mt-6 bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-4 md:p-5 group-hover:-translate-y-1 transition-transform duration-300">
-                    <h3 className="font-organic-sans text-lg md:text-xl font-black tracking-tighter uppercase text-black leading-none">
+                  <div className="mt-2 sm:mt-4 md:mt-6 bg-white border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] md:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-3 sm:p-4 md:p-5 group-hover:-translate-y-1 transition-transform duration-300">
+                    <h3 className="font-organic-sans text-base sm:text-lg md:text-xl font-black tracking-tighter uppercase text-black leading-tight line-clamp-1">
                       {photo.title}
                     </h3>
                     {photo.role && (
-                      <span className="inline-block bg-black text-white px-2 py-1 font-organic-mono text-[9px] md:text-[10px] font-bold tracking-widest uppercase mt-2 md:mt-3 mb-1 md:mb-2">
+                      <span className="inline-block bg-black text-white px-2 py-0.5 sm:py-1 font-organic-mono text-[8px] sm:text-[9px] md:text-[10px] font-bold tracking-widest uppercase mt-1 sm:mt-2 md:mt-3 mb-1">
                         {photo.role}
                       </span>
                     )}
                     {photo.description && (
-                      <p className="font-organic-mono text-[10px] md:text-xs text-black/80 mt-1 md:mt-2">
+                      <p className="font-organic-mono text-[9px] sm:text-[10px] md:text-xs text-black/80 mt-1 line-clamp-2">
                         {photo.description}
                       </p>
                     )}
