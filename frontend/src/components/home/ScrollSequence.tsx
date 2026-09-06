@@ -44,26 +44,26 @@ export function ScrollSequence({ isBackgroundMode = false }: { isBackgroundMode?
   // Yoyo effect: 0 -> 239 -> 0
   const frameIndex = useTransform(scrollYProgress, [0, 0.5, 1], [0, FRAME_COUNT - 1, 0]);
 
-  // Scale animation: Large on mobile hero, remains visible throughout
+  // Scale animation: Large on mobile hero, scales to land inside orbit at bottom
   const canvasScale = useTransform(
     scrollYProgress,
     [0, 0.35, 0.65, 0.85, 1],
     isBackgroundMode 
       ? [0.5, 0.5, 0.5, 0.5, 0.5] 
       : isMobile 
-        ? [0.95, 0.85, 0.7, 0.55, 0.5] 
-        : [0.65, 0.95, 0.8, 0.6, 0.5]
+        ? [0.8, 0.85, 0.7, 0.55, 0.5] 
+        : [0.65, 0.95, 0.8, 0.6, 0.52]
   );
 
-  // Translate animation: Perfectly balances below the centered name on hero (10vh), centers on scroll
+  // Translate animation: Spaced below hero name on mobile (16vh), lands in center of bottom orbit (-14vh)
   const canvasY = useTransform(
     scrollYProgress,
     [0, 0.4, 0.7, 0.85, 1],
     isBackgroundMode 
       ? ["0vh", "0vh", "0vh", "0vh", "0vh"] 
       : isMobile 
-        ? ["10vh", "0vh", "0vh", "0vh", "0vh"] 
-        : ["0vh", "0vh", "0vh", "0vh", "15vh"]
+        ? ["16vh", "0vh", "0vh", "-6vh", "-14vh"] 
+        : ["0vh", "0vh", "0vh", "0vh", "0vh"]
   );
 
   // Translate X animation: Starts on the right on desktop, stays centered on mobile
@@ -74,7 +74,7 @@ export function ScrollSequence({ isBackgroundMode = false }: { isBackgroundMode?
       ? ["0vw", "0vw", "0vw", "0vw"] 
       : isMobile 
         ? ["0vw", "0vw", "0vw", "0vw"] 
-        : ["30vw", "0vw", "0vw", "32vw"]
+        : ["30vw", "0vw", "0vw", "30vw"]
   );
 
   // Visible across entire scroll on both mobile and laptop
