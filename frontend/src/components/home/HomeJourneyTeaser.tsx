@@ -41,7 +41,7 @@ export function HomeJourneyTeaser() {
               const angleRad = (angleDeg * Math.PI) / 180;
               
               const radiusDesktop = 100; 
-              const radiusMobile = 90;
+              const radiusMobile = 104;
               
               const xDesktop = Math.cos(angleRad) * radiusDesktop;
               const yDesktop = Math.sin(angleRad) * radiusDesktop;
@@ -88,7 +88,7 @@ export function HomeJourneyTeaser() {
                   >
                     <motion.div
                       style={{ rotate: photoCounterRotation }}
-                      className="w-15 h-15 sm:w-18 sm:h-18 rounded-full border-3 border-black shadow-[3px_3px_0_0_#000] overflow-hidden bg-black"
+                      className="w-13 h-13 sm:w-16 sm:h-16 rounded-full border-3 border-black shadow-[3px_3px_0_0_#000] overflow-hidden bg-black"
                     >
                       <img src={photo.image} alt={photo.title} className="w-full h-full object-cover" />
                     </motion.div>

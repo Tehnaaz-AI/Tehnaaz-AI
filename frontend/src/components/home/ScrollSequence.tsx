@@ -51,18 +51,18 @@ export function ScrollSequence({ isBackgroundMode = false }: { isBackgroundMode?
     isBackgroundMode 
       ? [0.5, 0.5, 0.5, 0.5, 0.5] 
       : isMobile 
-        ? [0.72, 0.85, 0.7, 0.5, 0.42] 
+        ? [0.72, 0.85, 0.7, 0.48, 0.38] 
         : [0.65, 0.95, 0.8, 0.6, 0.52]
   );
 
-  // Translate animation: Grouped below hero name in screen center (14vh), lands in exact center of bottom orbit (-17vh)
+  // Translate animation: Grouped below hero name in screen center (14vh), lands in exact center of bottom orbit (-10.5vh)
   const canvasY = useTransform(
     scrollYProgress,
     [0, 0.4, 0.7, 0.85, 1],
     isBackgroundMode 
       ? ["0vh", "0vh", "0vh", "0vh", "0vh"] 
       : isMobile 
-        ? ["14vh", "0vh", "0vh", "-8vh", "-17vh"] 
+        ? ["14vh", "0vh", "0vh", "-5vh", "-10.5vh"] 
         : ["0vh", "0vh", "0vh", "0vh", "0vh"]
   );
 
